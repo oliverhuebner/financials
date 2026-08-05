@@ -1,0 +1,60 @@
+import 'package:go_router/go_router.dart';
+
+import 'package:financials/ui/level/widgets/level_screen.dart';
+import 'package:financials/ui/page/widgets/page_screen.dart';
+import 'package:financials/ui/page/view_models/page_viewmodel.dart';
+import 'package:financials/data/repositories/data_repository.dart';
+import 'package:financials/data/services/data_service.dart';
+import 'package:financials/ui/level_list/widgets/level_list_screen.dart';
+import 'package:financials/ui/level_list/view_models/level_list_viewmodel.dart';
+
+GoRouter router() => _router;
+GoRouter _router = GoRouter(
+  initialLocation: '/',
+  routes: <RouteBase>[
+    GoRoute(
+      name: 'level',
+      path: '/level/:levelId',
+      builder: (context, state) {
+        final levelId = state.pathParameters['levelId']!;
+        return LevelScreen(levelId: levelId);
+      },
+      routes: [
+        GoRoute(
+          name: 'page',
+          path: '/page/:pageNumber',
+          builder: (context, state) {
+            final DataService service = DataService();
+            String levelId = state.pathParameters['levelId']!;
+            final DataRepository repository = DataRepository(
+              dataService: service,
+            );
+            final pageNumber = state.pathParameters['pageNumber']!;
+            final PageViewModel viewModel = PageViewModel(
+              pages: [],
+              pageNumber: int.parse(pageNumber),
+              levelId: levelId,
+              text: '',
+              dataRepository: repository,
+            );
+
+            return PageScreen(viewModel: viewModel);
+          },
+        ),
+      ],
+    ),
+    GoRoute(
+      name: 'home',
+      path: '/',
+      builder: (context, child) {
+        final DataService service = DataService();
+        final DataRepository repository = DataRepository(dataService: service);
+        final LevelListViewModel viewModel = LevelListViewModel(
+          dataRepository: repository,
+          levels: [],
+        );
+        return LevelListScreen(viewModel: viewModel);
+      },
+    ),
+  ],
+);

@@ -1,0 +1,44 @@
+[
+    {
+        "description": "Level 1",
+        "level_id": "1",
+        "pages": [
+            {
+                "page_number": 1,
+                "text": "Page 1"
+            },
+            {
+                "page_number": 2,
+                "text": "Page 2"
+            }
+        ]
+    },
+    {
+        "description": "Level 2",
+        "level_id": "2",
+        "pages": [
+            {
+                "page_number": 1,
+                "text": "Page 1"
+            },
+            {
+                "page_number": 2,
+                "text": "Page 2"
+            }
+        ]
+    },
+    {
+        "description": "Level 3",
+        "level_id": "3",
+        "pages": [
+            {
+                "page_number": 1,
+                "text": "Page 1"
+            },
+            {
+                "page_number": 2,
+                "text": "Page 2"
+            }
+        ]
+    }
+]
