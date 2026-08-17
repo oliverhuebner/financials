@@ -7,6 +7,8 @@ import 'package:financials/data/repositories/data_repository.dart';
 import 'package:financials/data/services/data_service.dart';
 import 'package:financials/ui/level_list/widgets/level_list_screen.dart';
 import 'package:financials/ui/level_list/view_models/level_list_viewmodel.dart';
+import 'package:financials/ui/question/widgets/question_screen.dart';
+import 'package:financials/ui/question/view_models/question_viewmodel.dart';
 
 GoRouter router() => _router;
 GoRouter _router = GoRouter(
@@ -39,6 +41,26 @@ GoRouter _router = GoRouter(
             );
 
             return PageScreen(viewModel: viewModel);
+          },
+        ),
+        GoRoute(
+          name: 'question',
+          path: 'question/:questionNumber',
+          builder: (context, state) {
+            final DataService service = DataService();
+            String levelId = state.pathParameters['levelId']!;
+            final DataRepository repository = DataRepository(
+              dataService: service,
+            );
+            final questionNumber = state.pathParameters["questionNumber"]!;
+            final QuestionViewModel viewModel = QuestionViewModel(
+              questions: [],
+              questionNumber: int.parse(questionNumber),
+              levelId: levelId,
+              text: '',
+              repository: repository,
+            );
+            return QuestionScreen(viewModel: viewModel);
           },
         ),
       ],

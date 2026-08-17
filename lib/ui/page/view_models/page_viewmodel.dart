@@ -11,7 +11,7 @@ class PageViewModel extends ChangeNotifier {
     required this.pageNumber,
     required this.pages,
   }) {
-    fetchPages(levelId);
+    retrievePages(levelId);
   }
 
   String text;
@@ -25,8 +25,8 @@ class PageViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> fetchPages(String levelId) async {
-    pages = await _dataRepository.fetchPages(levelId);
+  Future<void> retrievePages(String levelId) async {
+    pages = await _dataRepository.retrievePages(levelId);
     notifyListeners();
   }
 }

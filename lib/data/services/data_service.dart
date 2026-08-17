@@ -5,9 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:financials/data/services/models/level/level_model.dart';
 import 'package:financials/data/services/models/page/page_model.dart';
 import 'package:financials/data/services/models/level_list/level_list_model.dart';
+import 'package:financials/data/services/models/question/question_model.dart';
 
 class DataService {
-  Future<List<LevelModel>> fetchLevels() async {
+  Future<List<LevelModel>> retrieveLevels() async {
     final response = await rootBundle.loadString('assets/levels.json');
     final jsonMap = jsonDecode(response);
     // print(jsonMap);
@@ -19,7 +20,7 @@ class DataService {
   }
 
   //What type of id for level?
-  Future<List<PageModel>> fetchPages(String levelId) async {
+  Future<List<PageModel>> retrievePages(String levelId) async {
     final String response = await rootBundle.loadString("assets/levels.json");
     final jsonMap = jsonDecode(response);
     final levels = LevelListModel.fromJson({'levelList': jsonMap});
@@ -30,5 +31,18 @@ class DataService {
       }
     }
     return pages;
+  }
+
+  Future<List<QuestionModel>> retrieveQuestions(String levelId) async {
+    final String response = await rootBundle.loadString("assets/levels.json");
+    final jsonMap = jsonDecode(response);
+    final levels = LevelListModel.fromJson({'levelList': jsonMap});
+    List<QuestionModel> questions = [];
+    for (final level in levels.levelList) {
+      if (level.levelId == levelId) {
+        questions = level.questions;
+      }
+    }
+    return questions;
   }
 }

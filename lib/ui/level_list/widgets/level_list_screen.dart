@@ -18,17 +18,30 @@ class _LevelListScreenState extends State<LevelListScreen> {
     return CupertinoPageScaffold(
       child: ListenableBuilder(
         listenable: widget.viewModel,
-        builder: (context, child) => Column(
-          children: [
-            for (final level in widget.viewModel.levels)
-              CupertinoButton(
-                child: Text(level.description),
-                onPressed: () => context.pushNamed(
-                  'level',
-                  pathParameters: {'levelId': level.levelId},
+        builder: (context, child) => SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: .center,
+            crossAxisAlignment: .center,
+            children: [
+              for (final level in widget.viewModel.levels)
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: CupertinoButton(
+                    color: CupertinoColors.systemGrey,
+                    child: Text(
+                      level.description,
+                      style: TextStyle(color: CupertinoColors.white),
+                    ),
+                    onPressed: () => context.pushNamed(
+                      'level',
+                      pathParameters: {'levelId': level.levelId},
+                      extra: level.description,
+                    ),
+                  ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );

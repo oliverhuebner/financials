@@ -1,0 +1,18 @@
+import 'package:flutter/cupertino.dart';
+import '../view_models/question_viewmodel.dart';
+import 'question_radio.dart';
+
+class QuestionScreen extends StatelessWidget {
+  QuestionScreen({super.key, required this.viewModel});
+
+  final QuestionViewModel viewModel;
+
+  @override
+  Widget build(BuildContext context) {
+    return CupertinoPageScaffold(
+      child: Column(
+        children: [/*QuestionRadio(viewModel: viewModel)*/ Text('test')],
+      ),
+    );
+  }
+}

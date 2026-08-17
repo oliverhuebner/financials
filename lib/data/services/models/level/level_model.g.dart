@@ -14,6 +14,11 @@ _LevelModel _$LevelModelFromJson(Map<String, dynamic> json) => _LevelModel(
           ?.map((e) => PageModel.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  questions:
+      (json['questions'] as List<dynamic>?)
+          ?.map((e) => QuestionModel.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
 );
 
 Map<String, dynamic> _$LevelModelToJson(_LevelModel instance) =>
@@ -21,4 +26,5 @@ Map<String, dynamic> _$LevelModelToJson(_LevelModel instance) =>
       'level_id': instance.levelId,
       'description': instance.description,
       'pages': instance.pages,
+      'questions': instance.questions,
     };

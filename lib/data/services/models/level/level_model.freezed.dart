@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LevelModel {
 
-@JsonKey(name: 'level_id') String get levelId; String get description; List<PageModel> get pages;
+@JsonKey(name: 'level_id') String get levelId; String get description; List<PageModel> get pages; List<QuestionModel> get questions;
 /// Create a copy of LevelModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $LevelModelCopyWith<LevelModel> get copyWith => _$LevelModelCopyWithImpl<LevelMo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LevelModel&&(identical(other.levelId, levelId) || other.levelId == levelId)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.pages, pages));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LevelModel&&(identical(other.levelId, levelId) || other.levelId == levelId)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.pages, pages)&&const DeepCollectionEquality().equals(other.questions, questions));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,levelId,description,const DeepCollectionEquality().hash(pages));
+int get hashCode => Object.hash(runtimeType,levelId,description,const DeepCollectionEquality().hash(pages),const DeepCollectionEquality().hash(questions));
 
 @override
 String toString() {
-  return 'LevelModel(levelId: $levelId, description: $description, pages: $pages)';
+  return 'LevelModel(levelId: $levelId, description: $description, pages: $pages, questions: $questions)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $LevelModelCopyWith<$Res>  {
   factory $LevelModelCopyWith(LevelModel value, $Res Function(LevelModel) _then) = _$LevelModelCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'level_id') String levelId, String description, List<PageModel> pages
+@JsonKey(name: 'level_id') String levelId, String description, List<PageModel> pages, List<QuestionModel> questions
 });
 
 
@@ -65,12 +65,13 @@ class _$LevelModelCopyWithImpl<$Res>
 
 /// Create a copy of LevelModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? levelId = null,Object? description = null,Object? pages = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? levelId = null,Object? description = null,Object? pages = null,Object? questions = null,}) {
   return _then(_self.copyWith(
 levelId: null == levelId ? _self.levelId : levelId // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,pages: null == pages ? _self.pages : pages // ignore: cast_nullable_to_non_nullable
-as List<PageModel>,
+as List<PageModel>,questions: null == questions ? _self.questions : questions // ignore: cast_nullable_to_non_nullable
+as List<QuestionModel>,
   ));
 }
 
@@ -155,10 +156,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'level_id')  String levelId,  String description,  List<PageModel> pages)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'level_id')  String levelId,  String description,  List<PageModel> pages,  List<QuestionModel> questions)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LevelModel() when $default != null:
-return $default(_that.levelId,_that.description,_that.pages);case _:
+return $default(_that.levelId,_that.description,_that.pages,_that.questions);case _:
   return orElse();
 
 }
@@ -176,10 +177,10 @@ return $default(_that.levelId,_that.description,_that.pages);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'level_id')  String levelId,  String description,  List<PageModel> pages)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'level_id')  String levelId,  String description,  List<PageModel> pages,  List<QuestionModel> questions)  $default,) {final _that = this;
 switch (_that) {
 case _LevelModel():
-return $default(_that.levelId,_that.description,_that.pages);case _:
+return $default(_that.levelId,_that.description,_that.pages,_that.questions);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -196,10 +197,10 @@ return $default(_that.levelId,_that.description,_that.pages);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'level_id')  String levelId,  String description,  List<PageModel> pages)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'level_id')  String levelId,  String description,  List<PageModel> pages,  List<QuestionModel> questions)?  $default,) {final _that = this;
 switch (_that) {
 case _LevelModel() when $default != null:
-return $default(_that.levelId,_that.description,_that.pages);case _:
+return $default(_that.levelId,_that.description,_that.pages,_that.questions);case _:
   return null;
 
 }
@@ -211,7 +212,7 @@ return $default(_that.levelId,_that.description,_that.pages);case _:
 @JsonSerializable()
 
 class _LevelModel implements LevelModel {
-   _LevelModel({@JsonKey(name: 'level_id') required this.levelId, required this.description, final  List<PageModel> pages = const []}): _pages = pages;
+   _LevelModel({@JsonKey(name: 'level_id') required this.levelId, required this.description, final  List<PageModel> pages = const [], final  List<QuestionModel> questions = const []}): _pages = pages,_questions = questions;
   factory _LevelModel.fromJson(Map<String, dynamic> json) => _$LevelModelFromJson(json);
 
 @override@JsonKey(name: 'level_id') final  String levelId;
@@ -221,6 +222,13 @@ class _LevelModel implements LevelModel {
   if (_pages is EqualUnmodifiableListView) return _pages;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_pages);
+}
+
+ final  List<QuestionModel> _questions;
+@override@JsonKey() List<QuestionModel> get questions {
+  if (_questions is EqualUnmodifiableListView) return _questions;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_questions);
 }
 
 
@@ -237,16 +245,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LevelModel&&(identical(other.levelId, levelId) || other.levelId == levelId)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._pages, _pages));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LevelModel&&(identical(other.levelId, levelId) || other.levelId == levelId)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other._pages, _pages)&&const DeepCollectionEquality().equals(other._questions, _questions));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,levelId,description,const DeepCollectionEquality().hash(_pages));
+int get hashCode => Object.hash(runtimeType,levelId,description,const DeepCollectionEquality().hash(_pages),const DeepCollectionEquality().hash(_questions));
 
 @override
 String toString() {
-  return 'LevelModel(levelId: $levelId, description: $description, pages: $pages)';
+  return 'LevelModel(levelId: $levelId, description: $description, pages: $pages, questions: $questions)';
 }
 
 
@@ -257,7 +265,7 @@ abstract mixin class _$LevelModelCopyWith<$Res> implements $LevelModelCopyWith<$
   factory _$LevelModelCopyWith(_LevelModel value, $Res Function(_LevelModel) _then) = __$LevelModelCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'level_id') String levelId, String description, List<PageModel> pages
+@JsonKey(name: 'level_id') String levelId, String description, List<PageModel> pages, List<QuestionModel> questions
 });
 
 
@@ -274,12 +282,13 @@ class __$LevelModelCopyWithImpl<$Res>
 
 /// Create a copy of LevelModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? levelId = null,Object? description = null,Object? pages = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? levelId = null,Object? description = null,Object? pages = null,Object? questions = null,}) {
   return _then(_LevelModel(
 levelId: null == levelId ? _self.levelId : levelId // ignore: cast_nullable_to_non_nullable
 as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String,pages: null == pages ? _self._pages : pages // ignore: cast_nullable_to_non_nullable
-as List<PageModel>,
+as List<PageModel>,questions: null == questions ? _self._questions : questions // ignore: cast_nullable_to_non_nullable
+as List<QuestionModel>,
   ));
 }
 

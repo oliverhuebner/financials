@@ -1,43 +1,138 @@
 [
     {
-        "description": "Level 1",
+        "description": "What is investing",
         "level_id": "1",
         "pages": [
             {
                 "page_number": 1,
-                "text": "Page 1"
+                "text": "Investing is when you put money in assets with the intention of them growing in their value, making money when you decide to sell these assets."
             },
             {
                 "page_number": 2,
-                "text": "Page 2"
+                "text": "There are many different kinds of investments, including stocks, bonds, real estate, raw materials, and collectibles."
+            },
+            {
+                "page_number": 3,
+                "text": "We will focus on stocks here."
+            }
+        ],
+        "questions": [
+            {
+                "question_number": 1,
+                "id": "1",
+                "text": "Do you have investments?",
+                "options": [
+                    {
+                        "id": "1",
+                        "text": "Yes"
+                    },
+                    {
+                        "id": "2",
+                        "text": "No"
+                    }
+                ]
             }
         ]
     },
     {
-        "description": "Level 2",
+        "description": "What is a stock",
         "level_id": "2",
         "pages": [
             {
                 "page_number": 1,
-                "text": "Page 1"
+                "text": "A stock is part of a company."
             },
             {
                 "page_number": 2,
-                "text": "Page 2"
+                "text": "This means when you own a stock, you own a part of the company."
+            },
+            {
+                "page_number": 3,
+                "text": "If the company's value increases, so does your stock."
+            },
+            {
+                "page_number": 4,
+                "text": "By buying percentages of companies that grow over time, so does your investment."
             }
         ]
     },
     {
-        "description": "Level 3",
+        "description": "Why invest?",
         "level_id": "3",
         "pages": [
             {
                 "page_number": 1,
-                "text": "Page 1"
+                "text": "Investing can have many benefits including a voice in the company's decisions and growing your wealth."
             },
             {
                 "page_number": 2,
-                "text": "Page 2"
+                "text": "When your money isn't invested you actually lose money over time due to inflation."
+            }
+        ]
+    },
+    {
+        "description": "Inflation",
+        "level_id": "4",
+        "pages": [
+            {
+                "page_number": 1,
+                "text": "Currencies around the world often lose value anually due to a process known as inflation."
+            },
+            {
+                "page_number": 2,
+                "text": "In the United States, the inflation rate has been close to 2% anually."
+            },
+            {
+                "page_number": 3,
+                "text": "What this means is cash saved will decrease in spending power by 2% each year."
+            },
+            {
+                "page_number": 4,
+                "text": "For example, if an apple is $1 and someone has $100, 100 apples could be purchased. If the $100 was saved, in 40 years--assuming a 2% inflation rate--only 44 apples could be purchased."
+            },
+            {
+                "page_number": 5,
+                "text": "This provides an argument for investing money. If an investment grows by 10% each year--subtracting the 2% value loss from inflation--2,172 apples could be purchased. The next lesson will show what makes this growth rate feasible."
+            }
+        ]
+    },
+    {
+        "description": "Index funds",
+        "level_id": "5",
+        "pages": [
+            {
+                "page_number": 1,
+                "text": "An index fund is a large collection of stocks that can be purchased as one unit."
+            },
+            {
+                "page_number": 2,
+                "text": "One of the most well known index funds is the S&P 500 fund."
+            },
+            {
+                "page_number": 3,
+                "text": "The S&P 500 is a group of the top 500 companies in the United States."
+            },
+            {
+                "page_number": 4,
+                "text": "The S&P 500 index fund has had a historical growth rate of around 10% each year."
+            },
+            {
+                "page_number": 5,
+                "text": "Assuming this growth rate--10% from the S&P 500 minus 2% from inflation-- investing $100 each month into the S&P 500 will create $313,040 in 40 years. With the inflation rate of 2%, this investment would be worth $33,330. That's more than a 9x increase in money in one's pocket from supporting the United States economy!"
+            },
+            {
+                "page_number": 6,
+                "text": "Experimenting with personalized values can be done on \n investor.gov/financial-tools-calculators/calculators/compound-interest-calculator."
+            }
+        ]
+    },
+    {
+        "description": "Get started",
+        "level_id": "6",
+        "pages": [
+            {
+                "page_number": 1,
+                "text": "Nowadays, the easiest investment solution for most people is an online brokerage service. Popular services include Robinhood, Vanguard, and Fidelity. "
             }
         ]
     }

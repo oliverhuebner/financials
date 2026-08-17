@@ -5,15 +5,15 @@ import 'package:financials/data/repositories/data_repository.dart';
 
 class LevelListViewModel extends ChangeNotifier {
   LevelListViewModel({required this.levels, required this._dataRepository}) {
-    fetchLevels();
+    retrieveLevels();
   }
 
   DataRepository _dataRepository;
 
   List<LevelModel> levels = [];
 
-  Future<void> fetchLevels() async {
-    levels = await _dataRepository.fetchLevels();
+  Future<void> retrieveLevels() async {
+    levels = await _dataRepository.retrieveLevels();
     notifyListeners();
   }
 }

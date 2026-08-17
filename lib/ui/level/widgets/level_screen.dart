@@ -11,11 +11,12 @@ class LevelScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String levelDescription = GoRouterState.of(context).extra! as String;
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(automaticallyImplyLeading: true),
       child: Stack(
         children: [
-          Center(child: Text('Level $levelId')),
+          Center(child: Text(levelDescription)),
           Positioned(
             bottom: 30,
             right: 30,

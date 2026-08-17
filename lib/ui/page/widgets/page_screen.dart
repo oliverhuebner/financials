@@ -41,17 +41,19 @@ class _PageScreenState extends State<PageScreen> {
               child:
                   widget.viewModel.pageNumber == widget.viewModel.pages.length
                   ? CupertinoButton(
-                      child: Text('Done'),
-                      onPressed: () => context.goNamed('home'),
+                      child: Text('Next'),
+                      onPressed: () => context.goNamed(
+                        'question',
+                        pathParameters: {
+                          'questionNumber': '1',
+                          'levelId': widget.viewModel.levelId,
+                        },
+                      ),
                     )
                   : CupertinoButton(
                       child: Text('Next'),
                       onPressed: () {
-                        print(widget.viewModel.pageNumber);
-                        print(widget.viewModel.pages.length);
                         widget.viewModel.nextPage();
-                        print(widget.viewModel.pageNumber);
-                        print(widget.viewModel.pages.length);
                         context.goNamed(
                           'page',
                           pathParameters: {
