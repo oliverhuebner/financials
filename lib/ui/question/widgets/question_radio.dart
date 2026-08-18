@@ -14,36 +14,41 @@ class QuestionRadio extends StatefulWidget {
 class _QuestionRadioState extends State<QuestionRadio> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoListSection(
-      children: [
-        CupertinoListTile(title: Text('this')),
-        /*  for (
-          int i = 0;
-          i <
-              widget
-                  .viewModel
-                  .questions[widget.viewModel.questionNumber - 1]
-                  .options
-                  .length;
-          i++
-        )
-          CupertinoListTile(
-            leading: CupertinoRadio(
-              value: widget
-                  .viewModel
-                  .questions[widget.viewModel.questionNumber - 1]
-                  .options[i]
-                  .text,
-            ),
-            title: Text(
-              widget
-                  .viewModel
-                  .questions[widget.viewModel.questionNumber - 1]
-                  .options[i]
-                  .text,
-            ),
-          ), */
-      ],
+    return ListenableBuilder(
+      listenable: widget.viewModel,
+      builder: (context, state) => CupertinoListSection(
+        children: [
+          if (widget.viewModel.questions.isNotEmpty)
+            for (
+              int i = 0;
+              i <
+                  widget
+                      .viewModel
+                      .questions[widget.viewModel.questionNumber - 1]
+                      .options
+                      .length;
+              i++
+            )
+              CupertinoListTile(
+                leading: CupertinoRadio(
+                  value: widget
+                      .viewModel
+                      .questions[widget.viewModel.questionNumber - 1]
+                      .options[i]
+                      .text,
+                ),
+                title: Text(
+                  widget
+                      .viewModel
+                      .questions[widget.viewModel.questionNumber - 1]
+                      .options[i]
+                      .text,
+                ),
+              ),
+          if (widget.viewModel.questions.isEmpty)
+            CupertinoListTile(title: Text('Error')),
+        ],
+      ),
     );
   }
 }

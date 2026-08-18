@@ -14,14 +14,16 @@ class QuestionViewModel extends ChangeNotifier {
   }
 
   int questionNumber = 1;
-  List<QuestionModel> questions = [];
+  List<QuestionModel> questions;
   String text;
   String levelId;
   DataRepository repository;
 
   Future<void> retrieveQuestions() async {
     questions = await repository.retrieveQuestions(levelId);
+    text = questions[questionNumber - 1].text;
     print(questions);
+    print(text);
     notifyListeners();
   }
 }
