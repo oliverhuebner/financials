@@ -1,14 +1,16 @@
 import 'package:go_router/go_router.dart';
 
-import 'package:financials/ui/level/widgets/level_screen.dart';
-import 'package:financials/ui/page/widgets/page_screen.dart';
-import 'package:financials/ui/page/view_models/page_viewmodel.dart';
+import 'package:financials/ui/home/level/widgets/level_screen.dart';
+import 'package:financials/ui/home/page/widgets/page_screen.dart';
+import 'package:financials/ui/home/page/view_models/page_viewmodel.dart';
 import 'package:financials/data/repositories/data_repository.dart';
 import 'package:financials/data/services/data_service.dart';
-import 'package:financials/ui/level_list/widgets/level_list_screen.dart';
-import 'package:financials/ui/level_list/view_models/level_list_viewmodel.dart';
-import 'package:financials/ui/question/widgets/question_screen.dart';
-import 'package:financials/ui/question/view_models/question_viewmodel.dart';
+import 'package:financials/ui/home/level_list/widgets/level_list_screen.dart';
+import 'package:financials/ui/home/level_list/view_models/level_list_viewmodel.dart';
+import 'package:financials/ui/home/question/widgets/question_screen.dart';
+import 'package:financials/ui/home/question/view_models/question_viewmodel.dart';
+import 'package:financials/ui/onboarding/sign_up/widgets/start_screen.dart';
+import 'package:financials/ui/onboarding/sign_up/view_models/start_viewmodel.dart';
 
 GoRouter router() => _router;
 GoRouter _router = GoRouter(
@@ -76,6 +78,18 @@ GoRouter _router = GoRouter(
           levels: [],
         );
         return LevelListScreen(viewModel: viewModel);
+      },
+    ),
+    GoRoute(
+      name: 'sign_up',
+      path: '/sign_up',
+      builder: (context, child) {
+        final DataService service = DataService();
+        final DataRepository repository = DataRepository(dataService: service);
+        final StartViewModel viewModel = StartViewModel(
+          dataRepository: repository,
+        );
+        return StartScreen(viewModel: viewModel);
       },
     ),
   ],

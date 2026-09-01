@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "267995479108",
+    "project_id": "project-nova1",
+    "storage_bucket": "project-nova1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:267995479108:android:8c0f89e98112dfb492d011",
+        "android_client_info": {
+          "package_name": "com.example.financials"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "267995479108-0d4prroqfeedgin2cl338bg88e6nj07j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABkQsCJXbhbdgVRwZIiQsr3DXcLKj0nVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "267995479108-0d4prroqfeedgin2cl338bg88e6nj07j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "267995479108-4cg6becrhmcp099n6i3qhip4t46est25.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.financials"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 
 import '../view_models/question_viewmodel.dart';
 import 'question_radio.dart';
@@ -17,6 +18,19 @@ class QuestionScreen extends StatelessWidget {
         children: [
           QuestionText(viewModel: viewModel),
           QuestionRadio(viewModel: viewModel),
+          Align(
+            alignment: .bottomRight,
+            child: CupertinoButton(
+              child: Text('next'),
+              onPressed: () => context.goNamed(
+                "question",
+                pathParameters: {
+                  "questionNumber": viewModel.questionNumber.toString(),
+                  "levelId": viewModel.levelId,
+                },
+              ),
+            ),
+          ),
         ],
       ),
     );

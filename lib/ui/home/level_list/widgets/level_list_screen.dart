@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 
-import 'package:financials/ui/level_list/view_models/level_list_viewmodel.dart';
+import 'package:financials/ui/home/level_list/view_models/level_list_viewmodel.dart';
 
 class LevelListScreen extends StatefulWidget {
   LevelListScreen({super.key, required this.viewModel});

@@ -1,3 +1,5 @@
+// @dart = 3.3
+
 import 'package:flutter/cupertino.dart';
 import 'package:financials/data/repositories/data_repository.dart';
 import 'package:financials/data/services/models/question/question_model.dart';
@@ -18,6 +20,11 @@ class QuestionViewModel extends ChangeNotifier {
   String text;
   String levelId;
   DataRepository repository;
+  String? answer;
+  void updateAnswer(String? value) {
+    answer = value;
+    notifyListeners();
+  }
 
   Future<void> retrieveQuestions() async {
     questions = await repository.retrieveQuestions(levelId);
